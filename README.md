@@ -137,6 +137,10 @@ Subgraph endpoints:
 Queries (HTTP):     https://api.thegraph.com/subgraphs/name/salmandabbakuti/my-collectible
 Subscriptions (WS): wss://api.thegraph.com/subgraphs/name/salmandabbakuti/my-collectible
 ```
+#### Mint Event indexing
 
+![Mint Event](https://github.com/Salmandabbakuti/mycollectible-api/blob/docs/images/mint.png)
 
+#### Transfer Event indexing
 
+![Transfer Event](https://github.com/Salmandabbakuti/mycollectible-api/blob/docs/images/transfer.png)
