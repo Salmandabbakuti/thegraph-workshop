@@ -1,6 +1,6 @@
 type Token @entity {
   id: ID!
-  tokenID: BigInt!
+  tokenId: BigInt!
   owner: Bytes! # address
   updatedAtTimestamp: BigInt!
 }
