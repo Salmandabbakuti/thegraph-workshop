@@ -1,4 +1,4 @@
-specVersion: 0.0.1
+specVersion: 0.0.2
 schema:
   file: ./schema.graphql
 dataSources:
@@ -13,18 +13,11 @@ dataSources:
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
-        - Approval
-        - ApprovalForAll
-        - Minted
-        - Transfer
+        - Token
       abis:
         - name: MyCollectible
           file: ./abis/MyCollectible.json
       eventHandlers:
-        - event: Approval(indexed address,indexed address,indexed uint256)
-          handler: handleApproval
-        - event: ApprovalForAll(indexed address,indexed address,bool)
-          handler: handleApprovalForAll
         - event: Minted(uint256,indexed address)
           handler: handleMinted
         - event: Transfer(indexed address,indexed address,indexed uint256)
