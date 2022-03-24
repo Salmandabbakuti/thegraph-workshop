@@ -6,19 +6,19 @@ dataSources:
     name: MyCollectible
     network: ropsten
     source:
-      address: "0xaE61560Ba3A62B7bbC313EF8eAECa28e717ff443"
+      address: "0x2EE8b8D5D26C953f5035DBB13dF048a84Aa3bA2E"
       abi: MyCollectible
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
-        - Token
+        - Collectible
       abis:
         - name: MyCollectible
           file: ./abis/MyCollectible.json
       eventHandlers:
-        - event: Minted(uint256,indexed address)
+        - event: Minted(uint256,indexed address,string)
           handler: handleMinted
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer

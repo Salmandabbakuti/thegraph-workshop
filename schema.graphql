@@ -1,6 +1,20 @@
-type Token @entity {
+type Collectible @entity {
   id: ID!
-  tokenId: BigInt!
+  tokenId: BigInt! # uint256
   owner: Bytes! # address
+  tokenURI: String # string
+  name: String # string
+  description: String # string
+  image: String # string
+  externalURL: String # string
   updatedAtTimestamp: BigInt!
 }
+
+type _Schema_
+  @fulltext(
+    name: "collectibleSearch"
+    language: en
+    algorithm: rank
+    include: [{entity: "Collectible", fields:
+      [{ name: "name" }, { name: "description" },{ name: "image" }, { name: "externalURL" },{ name: "tokenURI" }] }]
+  )

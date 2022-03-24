@@ -11,7 +11,7 @@ import {
   BigDecimal
 } from "@graphprotocol/graph-ts";
 
-export class Token extends Entity {
+export class Collectible extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
@@ -23,18 +23,18 @@ export class Token extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save Token entity without an ID");
+    assert(id != null, "Cannot save Collectible entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type Token must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        `Entities of type Collectible must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
-      store.set("Token", id.toString(), this);
+      store.set("Collectible", id.toString(), this);
     }
   }
 
-  static load(id: string): Token | null {
-    return changetype<Token | null>(store.get("Token", id));
+  static load(id: string): Collectible | null {
+    return changetype<Collectible | null>(store.get("Collectible", id));
   }
 
   get id(): string {
@@ -62,6 +62,91 @@ export class Token extends Entity {
 
   set owner(value: Bytes) {
     this.set("owner", Value.fromBytes(value));
+  }
+
+  get tokenURI(): string | null {
+    let value = this.get("tokenURI");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set tokenURI(value: string | null) {
+    if (!value) {
+      this.unset("tokenURI");
+    } else {
+      this.set("tokenURI", Value.fromString(<string>value));
+    }
+  }
+
+  get name(): string | null {
+    let value = this.get("name");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set name(value: string | null) {
+    if (!value) {
+      this.unset("name");
+    } else {
+      this.set("name", Value.fromString(<string>value));
+    }
+  }
+
+  get description(): string | null {
+    let value = this.get("description");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set description(value: string | null) {
+    if (!value) {
+      this.unset("description");
+    } else {
+      this.set("description", Value.fromString(<string>value));
+    }
+  }
+
+  get image(): string | null {
+    let value = this.get("image");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set image(value: string | null) {
+    if (!value) {
+      this.unset("image");
+    } else {
+      this.set("image", Value.fromString(<string>value));
+    }
+  }
+
+  get externalURL(): string | null {
+    let value = this.get("externalURL");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set externalURL(value: string | null) {
+    if (!value) {
+      this.unset("externalURL");
+    } else {
+      this.set("externalURL", Value.fromString(<string>value));
+    }
   }
 
   get updatedAtTimestamp(): BigInt {
