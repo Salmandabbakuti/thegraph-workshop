@@ -3,8 +3,10 @@ mycollectible nft subgraph api template
 
 #### My Collectible Subgraph API
 
+##### Steps:
 
-```
+
+```shell
 npm install -g @graphprotocol/graph-cli
 ```
 
@@ -29,7 +31,7 @@ Deploy key set for https://api.thegraph.com/deploy/
 
 ```
 
-```
+```shell
 yarn deploy
 
 $ graph deploy --node https://api.thegraph.com/deploy/ salmandabbakuti/mycollectible
@@ -55,7 +57,7 @@ $ graph deploy --node https://api.thegraph.com/deploy/ salmandabbakuti/mycollect
 √ Upload subgraph to IPFS
 ```
 
-```
+```shell
 yarn codegen // for applying code migrations
 
 graph codegen
@@ -81,7 +83,7 @@ graph codegen
 Types generated successfully
 ```
 
-```
+```shell
 yarn build
 
 yarn run v1.22.17
@@ -104,7 +106,7 @@ Build completed: D:\salman\mycollectible-api\build\subgraph.yaml
 
 ```
 
-```
+```shell
 yarn deploy
 
 graph deploy --node https://api.thegraph.com/deploy/ salmandabbakuti/my-collectible 
@@ -144,3 +146,7 @@ Subscriptions (WS): wss://api.thegraph.com/subgraphs/name/salmandabbakuti/my-col
 #### Transfer Event indexing
 
 ![Transfer Event](https://github.com/Salmandabbakuti/mycollectible-api/blob/docs/images/transfer.png)
+
+#### Full Text Search
+
+![Full Text Search](https://github.com/Salmandabbakuti/mycollectible-api/blob/docs/images/collectible-search.png)
