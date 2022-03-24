@@ -75,12 +75,16 @@ export class Minted__Params {
     this._event = event;
   }
 
-  get currentTokenId(): BigInt {
+  get tokenId(): BigInt {
     return this._event.parameters[0].value.toBigInt();
   }
 
   get owner(): Address {
     return this._event.parameters[1].value.toAddress();
+  }
+
+  get tokenURI(): string {
+    return this._event.parameters[2].value.toString();
   }
 }
 

@@ -7,13 +7,12 @@ contract MyCollectible is ERC721URIStorage {
   
     address public owner;
     uint256 currentTokenId;
-    bool private isRevealed;
 
     constructor() ERC721("Flower Collection", "FLWR") {
         owner = msg.sender;
     }
 
-    event Minted(uint256 currentTokenId, address indexed owner);
+    event Minted(uint256 tokenId, address indexed owner, string tokenURI);
 
     modifier onlyOwner() {
         require(msg.sender == owner, "Only owner can perform this action");
@@ -23,7 +22,7 @@ contract MyCollectible is ERC721URIStorage {
     function mintToken(string memory _tokenURI) public onlyOwner {
         _safeMint(msg.sender, currentTokenId);
         _setTokenURI(currentTokenId, _tokenURI);
-        emit Minted(currentTokenId, msg.sender);
+        emit Minted(currentTokenId, msg.sender, _tokenURI);
         currentTokenId++;
     }
 }
